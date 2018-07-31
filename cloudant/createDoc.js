@@ -17,7 +17,7 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName, doc) =
 	// validate doc: 
 
 	if (!doc || typeof doc !== 'object') {
-		throw new Error('doc must be an object'); // nonempty allowed? 
+		throw new Error('doc must be an object'); // empty allowed by cloudant? 
 	}
 
 	const keyNameRule = /^[^_]/; 
@@ -50,7 +50,7 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName, doc) =
 	const response = await request(options, requestBody);
 
 	if (!response.statusCode || !response.body) {
-		throw new Errror('toil and trouble'); 
+		throw new Error('toil and trouble'); 
 	}
 
 	const responseBody = JSON.parse(response.body);
