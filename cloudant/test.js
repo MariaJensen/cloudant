@@ -8,13 +8,11 @@ const adminPassword = process.env.DB_ADMIN_PASSWORD;
 
 const cloudant = new Cloudant(dbHostname, adminUsername, adminPassword);
 
-
-
 (async () => {
 
 	try {
 		
-		const test = await cloudant.readDoc('a', '08d330af6df5eb5d840558cbd14d9695');
+	
 
 		console.log('resolved: ');
 		console.log(test);
