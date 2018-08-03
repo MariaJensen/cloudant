@@ -42,7 +42,7 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName, doc) =
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
-			'Content-Length': Buffer.byteLength(requestBody),,
+			'Content-Length': Buffer.byteLength(requestBody),
 		},
 		auth: `${adminUsername}:${adminPassword}`,
 	};
