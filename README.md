@@ -6,6 +6,8 @@ Methods for managing a cloudant database from Node.js.
 
 ### Prerequisites
 An account on [IBMCloudant](https://www.ibm.com/cloud/cloudant).
+
+
 Let `<hostname>` be the hostname of the database address. It has the form 
 ```
     random-letters-and-numbers-bluemix.cloudant.com
@@ -22,6 +24,7 @@ Now you can create a cloudant object for your database:
 ```javascript
 const cloudant = new Cloudant('<hostname>', '<username>', '<password>');
 ```
+### Example
 The object has methods for doing database operations in an asynchroneous environment: 
 ```javascript
 (async () => {
@@ -64,3 +67,28 @@ The object has methods for doing database operations in an asynchroneous environ
 	await cloudant.deleteDb('my-new-db');
 
 })();
+```
+
+## Methods
+The cloudant module exports a class with the following methods: 
+### Database methods
+#### createDb(dbName)
+###### Parameters
+* dbName string
+
+The first letter of dbName must be a small letter in the range a-z. Possible other letters must be small letters in the range a-z, digits in the range 0-9 or any of the characters _, $, (, ), +, -, /. 
+###### Effects
+Creates a database with the name dbName, provided that such a database does not already exist. If it does, method will throw. 
+###### Returns
+* object
+
+```javascript
+{ok: true}
+```
+#### deleteDb
+### Document methods
+#### createDoc
+#### readDoc
+#### updateDoc
+#### deleteDoc
+
