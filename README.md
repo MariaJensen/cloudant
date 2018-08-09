@@ -39,9 +39,9 @@ The object has methods for doing database operations in an asynchroneous environ
 
 	console.log(readDoc1);
 	
-	// {    _id: 'myDocId',
-    	//      _rev: '1-9aeec4b6bd5b7b7fa0ec50bbce565459',
-    	//      message: 'Hello database' }
+		// { _id: 'myDocId',
+    		//   _rev: '1-9aeec4b6bd5b7b7fa0ec50bbce565459',
+    		//   message: 'Hello database' }
 	
 	const doc2 = {
 		_id: 'myDocId',
@@ -55,9 +55,9 @@ The object has methods for doing database operations in an asynchroneous environ
 
 	console.log(readDoc2);
 	
-	// {    _id: 'myDocId',
-    	//      _rev: '2-812f184dbcb8a6c14cc825120c3d2654',
-    	//      message: 'Goodbye database' }
+		// { _id: 'myDocId',
+    		//   _rev: '2-812f184dbcb8a6c14cc825120c3d2654',
+    		//   message: 'Goodbye database' }
 
 	await cloudant.deleteDoc('my-new-db', 'myDocId', readDoc2._rev);
 
