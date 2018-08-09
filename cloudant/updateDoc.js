@@ -42,7 +42,7 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName, doc) =
 		auth: `${adminUsername}:${adminPassword}`,
 	}
 
-	const response = await request(options, body);
+	const response = await request(options, requestBody);
 
 	if (!response.body || !response.statusCode) {
 		throw new Error(`nfg`);
