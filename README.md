@@ -1,6 +1,6 @@
 # Cloudant
 
-Utilities for managing a cloudant database from Node.js. 
+Methods for managing a cloudant database from Node.js. 
 
 ## Getting started
 
