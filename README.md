@@ -83,35 +83,56 @@ Creates a database with the name dbName, provided that such a database does not 
 ```javascript
 { ok: true }
 ```
-### deleteDb
+### deleteDb(dbName)
 #### Parameters
 * dbName string
 #### Effects
 Deletes the database with the name dbName, provided that such a database exists. If it doesn't, method will throw. 
-##### Returns
+#### Returns
 * object
 ```javascript
 { ok: true }
 ```
 ### createDoc(dbName, doc)
-##### Parameters
+#### Parameters
 * dbName string
 
 Must be the name of an existing database.
 * doc object
 
 If an \_id property is not provided, it will be generated automatically.  
-##### Effects
+#### Effects
 Creates a document in the database dbName with fields corresponding to the properties of doc as well as an \_id field (if \_id is not provided in doc) and a \_rev field.   
-##### Returns
+#### Returns
 * object
 ```javascript
 { ok: true,
-  id: <string>,
-  rev <string>
+  id: 'test,
+  rev: '1-5800f3ebeadfffe83f556d75b21514f8'
 }
 ```
-### readDoc
-### updateDoc
+### readDoc(dbName, docId, queryParameters)
+#### Parameters
+* dbName string
+* docId string
+* queryParameters object optional
+#### Returns
+* Object
+The content of the doc is returned as an object with possible extra fields specified by queryParameters. 
+### updateDoc(dbName, doc)
+#### Parameters
+* dbName string
+* doc object
+The doc must contain properties \_id and\_rev
+#### Effects
+If a document exists in database dbName with the provided \_id, and \_rev is the latest revision of the document, then it will be overwritten with doc. 
+#### Returns
+* Object
+```javascript
+{ ok: true,
+  id: 'test,
+  rev: '2-2d9c4dc4df1db8de2044918544cd46a3'
+}
+```
 ### deleteDoc
 
