@@ -9,36 +9,29 @@ const password = process.env.DB_ADMIN_PASSWORD;
 const cloudant = new Cloudant(hostname, username, password);
 
 (async () => {
+
+	try {
 	
-	await cloudant.createDb('my-new-db');
+		const createDb = await cloudant.createDb('test');
+		// console.log(createDb); 
 
-	const doc1 = {
-		_id: 'myDocId',
-		message: 'Hello database',
-	};
+		const createDoc = await cloudant.createDoc('test', {
+			fact: 'Jeremiah was a bullfrog',
+		});
+		console.log(createDoc);
 
-	await cloudant.createDoc('my-new-db', doc1); 
+		const deleteDoc = await cloudant.deleteDoc('test', createDoc.id, createDoc.rev);
+		console.log(deleteDoc);
 
-	const readDoc1 = await cloudant.readDoc('my-new-db', 'myDocId');
+		
 
-	console.log(readDoc1);
 
-	const doc2 = {
-		_id: 'myDocId',
-		_rev: readDoc1._rev,
-		message: 'Goodbye database',
-	};
+		const deleteDb = await cloudant.deleteDb('test');
+		// console.log(deleteDb);
+	} catch(err) {
+		console.log(err);
+		await cloudant.deleteDb('test');
+	}
 
-	await cloudant.updateDoc('my-new-db', doc2);
-
-	const readDoc2 = await cloudant.readDoc('my-new-db', 'myDocId');
-
-	console.log(readDoc2);
-
-	await cloudant.deleteDoc('my-new-db', readDoc2._id, readDoc2._rev);
-
-	await cloudant.deleteDb('my-new-db');
 
 })();
-
-

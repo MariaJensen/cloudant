@@ -48,6 +48,8 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName, doc) =
 		throw new Error(`nfg`);
 	}
 
+	// TODO: If _id does not exist in database, this should be reflected in response. As it is now, a non-existing _id will result in an update conflict error message. 
+
 	const responseBody = JSON.parse(response.body);
 
 	if (response.statusCode !== 201) {
