@@ -107,7 +107,7 @@ Creates a document in the database dbName with fields corresponding to the prope
 * object
 ```javascript
 { ok: true,
-  id: 'test,
+  id: 'test',
   rev: '1-5800f3ebeadfffe83f556d75b21514f8'
 }
 ```
@@ -118,21 +118,39 @@ Creates a document in the database dbName with fields corresponding to the prope
 * queryParameters object optional
 #### Returns
 * Object
+
 The content of the doc is returned as an object with possible extra fields specified by queryParameters. 
 ### updateDoc(dbName, doc)
 #### Parameters
 * dbName string
 * doc object
+
 The doc must contain properties \_id and\_rev
 #### Effects
 If a document exists in database dbName with the provided \_id, and \_rev is the latest revision of the document, then it will be overwritten with doc. 
+Note: Request will only be send if both \_id and \_rev are provided. If the \_id does not exist in db, the error will be 409 Document update conflict, same as if \_rev is not the most recent revision. To be fixed. 
 #### Returns
 * Object
+
 ```javascript
 { ok: true,
-  id: 'test,
+  id: 'test',
   rev: '2-2d9c4dc4df1db8de2044918544cd46a3'
 }
 ```
-### deleteDoc
+### deleteDoc(dbName, id, rev)
+#### Parameters
+* dbName string
+* id string
+* rev string
+#### Effects
+Provided that a document with the provided id exists in the database dbName, and that rev is the latest revision of the document, it will be deleted from the database. 
+#### Returns
+* Object
 
+```javascript
+{ ok: true,
+  id: 'test',
+  rev: '3-d3371c1968a0c3a7c4f41f87ff600667'
+}
+```
