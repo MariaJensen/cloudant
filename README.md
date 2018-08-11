@@ -71,24 +71,47 @@ The object has methods for doing database operations in an asynchroneous environ
 
 ## Methods
 The cloudant module exports a class with the following methods: 
-### Database methods
-#### createDb(dbName)
-###### Parameters
+### createDb(dbName)
+##### Parameters
 * dbName string
 
 The first letter of dbName must be a small letter in the range a-z. Possible other letters must be small letters in the range a-z, digits in the range 0-9 or any of the characters _, $, (, ), +, -, /. 
-###### Effects
+##### Effects
 Creates a database with the name dbName, provided that such a database does not already exist. If it does, method will throw. 
-###### Returns
+##### Returns
 * object
-
 ```javascript
-{ok: true}
+{ ok: true }
 ```
-#### deleteDb
-### Document methods
-#### createDoc
-#### readDoc
-#### updateDoc
-#### deleteDoc
+### deleteDb
+#### Parameters
+* dbName string
+#### Effects
+Deletes the database with the name dbName, provided that such a database exists. If it doesn't, method will throw. 
+##### Returns
+* object
+```javascript
+{ ok: true }
+```
+### createDoc(dbName, doc)
+##### Parameters
+* dbName string
+
+Must be the name of an existing database.
+* doc object
+
+If an \_id property is not provided, it will be generated automatically.  
+##### Effects
+Creates a document in the database dbName with fields corresponding to the properties of doc as well as an \_id field (if \_id is not provided in doc) and a \_rev field.   
+##### Returns
+* object
+```javascript
+{ ok: true,
+  id: <string>,
+  rev <string>
+}
+```
+### readDoc
+### updateDoc
+### deleteDoc
 
