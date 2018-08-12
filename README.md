@@ -30,10 +30,15 @@ The object has methods for doing database operations in an asynchroneous environ
 ## Methods
 The cloudant module exports a class with the following methods: 
 
-### createDb(dbName) <!-- -------------------------------------- -->
+### createDb(dbName) 
 
 * **Parameters:**
-  * **dbName string** A non-empty string in which the first character is a small letter from a to z, and any other character is either a small letter from a to z, a digit from 0 to 9 or any of the special characters \_, \$, \(, \), +, - or \/. 
+  * **dbName string** A non-empty string in which 
+    * the first character is a small letter from a to z
+    * any other character is 
+      * a small letter from a to z 
+      * a digit from 0 to 9 
+      * any of the special characters \_, \$, \(, \), +, -, \/ 
 
 * **Returns**
 
