@@ -52,17 +52,44 @@ Creates a database with name dbName, provided that such a database does not alre
       * reason: `<string>`
       * status: `<number>`
 
-### deleteDb(dbName) <!-- -------------------------------------- -->
+### deleteDb(dbName) 
+Deletes the database with name dbName, provided that such a database exists. 
 
 * **Parameters:**
+  * **dbName string** The name of an existing database
 
 * **Returns**
+  * **object** 
+    * If the database is successfully deleted, the returned object will have the properties
+      * ok: true
+      * status: 200
+
+    * else the returned object will have the properties
+      * error: `<string>`
+      * reason: `<string>`
+      * status: `<number>`
 
 ### createDoc(dbName, doc) <!-- -------------------------------------- -->
+Creates the document in the database named dbName, provided that such a database exists. 
+If doc has an \_id property, this will be the id of the document, provided that no document with this id exists already. 
+If doc has no \_id property, a random id will be generated for the document. 
 
 * **Parameters:**
+  * **dbName string** The name of an existing database
+  * **doc object** 
 
 * **Returns**
+  * **object** 
+    * If the database is successfully deleted, the returned object will have the properties
+      * ok: true
+      * status: 201
+      * id: `<string>`
+      * rev: `<string>`
+
+    * else the returned object will have the properties
+      * error: `<string>`
+      * reason: `<string>`
+      * status: `<number>`
 
 ### readDoc(dbName, docId [, queryParameters]) <!-- --------------------------- -->
 
