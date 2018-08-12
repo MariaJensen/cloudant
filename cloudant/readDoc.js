@@ -63,14 +63,17 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName, docId,
 
 	const responseBody = JSON.parse(response.body);
 
-	if (response.statusCode !== 200) {
-		const err = new Error(`readDoc failed
-			status: ${response.statusCode}
-			reason: ${responseBody.reason}`);
-		err.response = responseBody;
-		err.status = response.statusCode;
-		throw err; 
+	if (response.statusCode === 200) {
+		return {
+			status: 200,
+			ok: true,
+			id: responseBody._id,
+			rev: responseBody._rev,
+			doc: responseBody,
+		};
 	}
+
+	responseBody.status = response.statusCode; 
 
 	return responseBody; 
 };

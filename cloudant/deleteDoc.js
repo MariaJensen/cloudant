@@ -46,14 +46,7 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName, id, re
 
 	const responseBody = JSON.parse(response.body);
 
-	if (response.statusCode !== 200) {
-		const err = new Error(`deleteDoc failed
-			status: ${response.statusCode}
-			reason: ${responseBody.reason}`);
-		err.response = responseBody;
-		err.status = response.statusCode;
-		throw err; 
-	}
+	responseBody.status = response.statusCode; 
 
 	return responseBody; 
 };

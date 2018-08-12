@@ -28,18 +28,8 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName) => {
 
 	const responseBody = JSON.parse(response.body);
 
-	// TODO: Handle 202 partially created
-
-	if (response.statusCode !== 201) {
-		const err = new Error(`createDb failed
-			status: ${response.statusCode}
-			reason: ${responseBody.reason}`);
-		err.response = responseBody;
-		err.status = response.statusCode;
-		throw err; 
-
-	}
-
+	responseBody.status = response.statusCode; 
+	
 	return responseBody; 
 };
 

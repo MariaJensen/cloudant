@@ -55,14 +55,7 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName, doc) =
 
 	const responseBody = JSON.parse(response.body);
 
-	if (response.statusCode !== 201) {
-		const err = new Error(`createDoc failed
-			status: ${response.statusCode}
-			reason: ${responseBody.reason}`);
-		err.response = responseBody;
-		err.status = response.statusCode;
-		throw err; 
-	}
+	responseBody.status = response.statusCode; 
 
 	return responseBody;	
 };
