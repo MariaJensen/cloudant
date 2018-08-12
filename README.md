@@ -34,11 +34,13 @@ The cloudant module exports a class with the following methods:
 
 #### Parameters: 
 
+* **dbName string** 
+
 #### Effects: 
 
 #### Returns: 
 
-### deleteDb(dbName)
+### deleteDb(dbName) <!-- -------------------------------------- -->
 
 #### Parameters: 
 
@@ -46,7 +48,7 @@ The cloudant module exports a class with the following methods:
 
 #### Returns: 
 
-### createDoc(dbName, doc)
+### createDoc(dbName, doc) <!-- -------------------------------------- -->
 
 #### Parameters: 
 
@@ -54,7 +56,7 @@ The cloudant module exports a class with the following methods:
 
 #### Returns: 
 
-### readDoc(dbName, docId [, queryParameters])
+### readDoc(dbName, docId [, queryParameters]) <!-- --------------------------- -->
 
 #### Parameters: 
 
@@ -62,7 +64,7 @@ The cloudant module exports a class with the following methods:
 
 #### Returns: 
 
-### updateDoc(dbName, doc)
+### updateDoc(dbName, doc) <!-- -------------------------------------- -->
 
 #### Parameters: 
 
@@ -70,7 +72,7 @@ The cloudant module exports a class with the following methods:
 
 #### Returns: 
 
-### deleteDoc(dbName, docId, docRev)
+### deleteDoc(dbName, docId, docRev) <!-- ------------------------------------ -->
 
 #### Parameters: 
 
