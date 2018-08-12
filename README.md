@@ -35,20 +35,22 @@ Creates a database with name dbName, provided that such a database does not alre
 
 * **Parameters:**
   * **dbName string** A non-empty string in which 
-    * the first character is a small letter from a to z
+    * the first character is a small letter a-z
     * any other character is either
-      * a small letter from a to z, or 
-      * a digit from 0 to 9, or 
-      * any of the special characters \_, \$, \(, \), +, -, \/. 
+      * a small letter a-z, or 
+      * a digit 0-9, or 
+      * any of the special characters \_ \$ \( \) + - \/ 
 
 * **Returns**
-  * **object** If the database is created successfully, the returned object will have the properties
-    * ok: true,
+  * **object** 
+  If the database is created successfully, the returned object will have the properties
+    * ok: true
     * status: 201
+
   else the returned object will have the properties
-    * error: <string>,
-    * reason: <string>,
-    * status: <number>
+    * error: `<string>`
+    * reason: `<string>`
+    * status: `<number>`
 
 ### deleteDb(dbName) <!-- -------------------------------------- -->
 
