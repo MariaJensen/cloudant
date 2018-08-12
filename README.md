@@ -33,7 +33,7 @@ The cloudant module exports a class with the following methods:
 ### createDb(dbName) 
 Creates a database with name dbName, provided that such a database does not already exist. 
 
-* **Parameters:**
+###### **Parameters:**
   * **dbName string** A non-empty string in which 
     * the first character is a small letter a-z
     * any other character is either
@@ -41,7 +41,7 @@ Creates a database with name dbName, provided that such a database does not alre
       * a digit 0-9, or 
       * any of the special characters \_ \$ \( \) + - \/ 
 
-* **Returns**
+###### **Returns**
   * **object** 
     * If the database is created successfully, the returned object will have the properties
       * ok: true
@@ -80,11 +80,13 @@ If doc has no \_id property, a random id will be generated for the document.
 
 * **Returns**
   * **object** 
-    * If the database is successfully deleted, the returned object will have the properties
+    * If the document is successfully created, the returned object will have the properties
       * ok: true
       * status: 201
       * id: `<string>`
       * rev: `<string>`
+
+
 
     * else the returned object will have the properties
       * error: `<string>`
