@@ -3,7 +3,7 @@
 Methods for managing a cloudant database from Node.js. 
 
 ## Prerequisites
-An account on [IBMCloudant](https://www.ibm.com/cloud/cloudant).
+An account on [IBM Cloudant](https://www.ibm.com/cloud/cloudant).
 
 Let `<hostname>` be the hostname of the database address. It has the form 
 ```
@@ -12,7 +12,7 @@ Let `<hostname>` be the hostname of the database address. It has the form
 Let `<username>` and `<password>` be the credentials of a user on the database. 
 
 ## Installing
-Place the cloudant directory in your project directory and import the Cloudant class to a javascript file in the usual way: 
+Place the cloudant directory in your project directory and import the Cloudant class to a node/javascript file in the usual way: 
 ```javascript
 const Cloudant = require('./cloudant');
 ```
@@ -30,14 +30,50 @@ The object has methods for doing database operations in an asynchroneous environ
 ## Methods
 The cloudant module exports a class with the following methods: 
 
-## createDb(dbName)
+### createDb(dbName) <!-- -------------------------------------- -->
 
-## deleteDb(dbName)
+#### Parameters: 
 
-## createDoc(dbName, doc)
+#### Effects: 
 
-## readDoc(dbName, docId [, queryParameters])
+#### Returns: 
 
-## updateDoc(dbName, doc)
+### deleteDb(dbName)
 
-## deleteDoc(dbName, docId, docRev)
+#### Parameters: 
+
+#### Effects: 
+
+#### Returns: 
+
+### createDoc(dbName, doc)
+
+#### Parameters: 
+
+#### Effects: 
+
+#### Returns: 
+
+### readDoc(dbName, docId [, queryParameters])
+
+#### Parameters: 
+
+#### Effects: 
+
+#### Returns: 
+
+### updateDoc(dbName, doc)
+
+#### Parameters: 
+
+#### Effects: 
+
+#### Returns: 
+
+### deleteDoc(dbName, docId, docRev)
+
+#### Parameters: 
+
+#### Effects: 
+
+#### Returns: 
