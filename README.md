@@ -141,9 +141,9 @@ OR that
     * rev: ´<string>´
   
   * elsethe returned object will have properties
-    * error: ´<string>´
-    * reason: ´<string>´
-    * status: ´<number>´   
+    * error: `<string>`
+    * reason: `<string>`
+    * status: `<number>`   
 
 ### deleteDoc(dbName, docId, docRev) 
 Deletes the document with id docId and latest revision docRev from the database dbName, provided that such exist. 
@@ -158,10 +158,10 @@ Deletes the document with id docId and latest revision docRev from the database 
   * If the document is successfully deleted, the returned object will have the properties
     * ok: true
     * status: 200
-    * id: ´<string>´
-    * rev: ´<string>´
+    * id: `<string>`
+    * rev: `<string>`
   
   * else the returned object will have the properties
-    * error: ´<string>´
-    * reason: ´<string>´
-    * status: ´<number>´
+    * error: `<string>`
+    * reason: `<string>`
+    * status: `<number>`
