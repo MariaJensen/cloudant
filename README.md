@@ -42,17 +42,13 @@ Creates a database with name dbName, provided that such a database does not alre
       * any of the special characters \_, \$, \(, \), +, -, \/. 
 
 * **Returns**
-  * **object** If the database is created successfully, the returned object will have the shape 
-    ```javascript
-    { ok: true,
-      status: 201 },
-    ```
-    else the returned object will have the shape
-    ```javascript
-    { error: <string>,
-      reason: <string>,
-      status: <number>}.
-    ```
+  * **object** If the database is created successfully, the returned object will have the properties
+    * ok: true,
+    * status: 201
+    else the returned object will have the properties
+    * error: <string>,
+    * reason: <string>,
+    * status: <number>
 
 ### deleteDb(dbName) <!-- -------------------------------------- -->
 
