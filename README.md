@@ -55,10 +55,10 @@ Creates a database with name dbName, provided that such a database does not alre
 ### deleteDb(dbName) 
 Deletes the database with name dbName, provided that such a database exists. 
 
-* **Parameters:**
+###### **Parameters:**
   * **dbName string** The name of an existing database
 
-* **Returns**
+###### **Returns**
   * **object** 
     * If the database is successfully deleted, the returned object will have the properties
       * ok: true
@@ -69,16 +69,18 @@ Deletes the database with name dbName, provided that such a database exists.
       * reason: `<string>`
       * status: `<number>`
 
-### createDoc(dbName, doc) <!-- -------------------------------------- -->
+### createDoc(dbName, doc) 
 Creates the document in the database named dbName, provided that such a database exists. 
+
 If doc has an \_id property, this will be the id of the document, provided that no document with this id exists already. 
+
 If doc has no \_id property, a random id will be generated for the document. 
 
-* **Parameters:**
+###### **Parameters:**
   * **dbName string** The name of an existing database
   * **doc object** 
 
-* **Returns**
+###### **Returns**
   * **object** 
     * If the document is successfully created, the returned object will have the properties
       * ok: true
@@ -86,18 +88,34 @@ If doc has no \_id property, a random id will be generated for the document.
       * id: `<string>`
       * rev: `<string>`
 
-
-
     * else the returned object will have the properties
       * error: `<string>`
       * reason: `<string>`
       * status: `<number>`
 
-### readDoc(dbName, docId [, queryParameters]) <!-- --------------------------- -->
+### readDoc(dbName, docId [, queryParameters]) 
+Retrieves the content of the document with id docId in the database with name dbName, provided that such a database and document exist. 
 
-* **Parameters:**
+Note: 
 
-* **Returns**
+###### **Parameters:**
+* **dbName string**
+* **docId string**
+* **queryParameters object**
+
+###### **Returns**
+* **object**
+  * If the document is successfully retrieved, the returned object will have the properties
+    * ok: true
+    * status: 200
+    * id: `<string>`
+    * rev: `<string>`
+    * doc: `<object>`
+  * else the returned object will have the properties 
+    * error: `<string>`
+    * reason: `<string>`
+    * status: `<number>`
+
 
 ### updateDoc(dbName, doc) <!-- -------------------------------------- -->
 

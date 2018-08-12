@@ -23,11 +23,16 @@ const cloudant = new Cloudant(hostname, username, password);
 		});
 		console.log('createDoc: ', createDoc);
 
+		// const createDoc2 = await cloudant.createDoc('test2', {
+		// 	fact: 'Jeremiah was a bullfrog',
+		// });
+		// console.log('createDoc2: ', createDoc2);
 
-		const createDoc2 = await cloudant.createDoc('test2', {
-			fact: 'Jeremiah was a bullfrog',
-		});
-		console.log('createDoc2: ', createDoc2);
+		const readDoc = await cloudant.readDoc('test', createDoc.id);
+		console.log('readDoc: ', readDoc);
+
+		const readDoc2 = await cloudant.readDoc('test', 'test');
+		console.log('readDoc2: ', readDoc2);
 
 		// const deleteDoc = await cloudant.deleteDoc('test', createDoc.id, createDoc.rev);
 		// console.log('deleteDoc: ', deleteDoc);
