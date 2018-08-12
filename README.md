@@ -32,50 +32,37 @@ The cloudant module exports a class with the following methods:
 
 ### createDb(dbName) <!-- -------------------------------------- -->
 
-#### Parameters: 
+* **Parameters:**
+  * **dbName string** A non-empty string in which the first character is a small letter from a to z, and any other character is either a small letter from a to z, a digit from 0 to 9 or any of the special characters \_, \$, \(, \), +, - or \/. 
 
-* **dbName string** 
-
-#### Effects: 
-
-#### Returns: 
+* **Returns**
 
 ### deleteDb(dbName) <!-- -------------------------------------- -->
 
-#### Parameters: 
+* **Parameters:**
 
-#### Effects: 
-
-#### Returns: 
+* **Returns**
 
 ### createDoc(dbName, doc) <!-- -------------------------------------- -->
 
-#### Parameters: 
+* **Parameters:**
 
-#### Effects: 
-
-#### Returns: 
+* **Returns**
 
 ### readDoc(dbName, docId [, queryParameters]) <!-- --------------------------- -->
 
-#### Parameters: 
+* **Parameters:**
 
-#### Effects: 
-
-#### Returns: 
+* **Returns**
 
 ### updateDoc(dbName, doc) <!-- -------------------------------------- -->
 
-#### Parameters: 
+* **Parameters:**
 
-#### Effects: 
-
-#### Returns: 
+* **Returns**
 
 ### deleteDoc(dbName, docId, docRev) <!-- ------------------------------------ -->
 
-#### Parameters: 
+* **Parameters:**
 
-#### Effects: 
-
-#### Returns: 
+* **Returns**
