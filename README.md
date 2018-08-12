@@ -31,16 +31,27 @@ The object has methods for doing database operations in an asynchroneous environ
 The cloudant module exports a class with the following methods: 
 
 ### createDb(dbName) 
+Creates a database with name dbName, provided that such a database does not already exist. 
 
 * **Parameters:**
   * **dbName string** A non-empty string in which 
     * the first character is a small letter from a to z
-    * any other character is 
-      * a small letter from a to z 
-      * a digit from 0 to 9 
-      * any of the special characters \_, \$, \(, \), +, -, \/ 
+    * any other character is either
+      * a small letter from a to z, or 
+      * a digit from 0 to 9, or 
+      * any of the special characters \_, \$, \(, \), +, -, \/. 
 
 * **Returns**
+  * **object** If the database is created successfully, the returned object will have the shape 
+  ```javascript
+  { ok: true,
+    status: 201 },
+  ```
+  else the returned object will have the shape
+  ```javascript
+  { error: <string>,
+    reason: <string>,
+    status: <number>}.
 
 ### deleteDb(dbName) <!-- -------------------------------------- -->
 

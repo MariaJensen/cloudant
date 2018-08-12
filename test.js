@@ -15,13 +15,16 @@ const cloudant = new Cloudant(hostname, username, password);
 		const createDb = await cloudant.createDb('test');
 		console.log('createDb: ', createDb); 
 
-		const createDoc = await cloudant.createDoc('test', {
-			fact: 'Jeremiah was a bullfrog',
-		});
-		console.log('createDoc: ', createDoc);
+		const createDb2 = await cloudant.createDb('test');
+		console.log('createDb2: ', createDb2);
 
-		const deleteDoc = await cloudant.deleteDoc('test', createDoc.id, createDoc.rev);
-		console.log('deleteDoc: ', deleteDoc);
+		// const createDoc = await cloudant.createDoc('test', {
+		// 	fact: 'Jeremiah was a bullfrog',
+		// });
+		// console.log('createDoc: ', createDoc);
+
+		// const deleteDoc = await cloudant.deleteDoc('test', createDoc.id, createDoc.rev);
+		// console.log('deleteDoc: ', deleteDoc);
 
 		const deleteDb = await cloudant.deleteDb('test');
 		console.log('deleteDb: ', deleteDb);
