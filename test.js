@@ -28,20 +28,29 @@ const cloudant = new Cloudant(hostname, username, password);
 		// });
 		// console.log('createDoc2: ', createDoc2);
 
-		const readDoc = await cloudant.readDoc('test', createDoc.id);
-		console.log('readDoc: ', readDoc);
+		// const readDoc = await cloudant.readDoc('test', createDoc.id);
+		// console.log('readDoc: ', readDoc);
 
-		const readDoc2 = await cloudant.readDoc('test', 'test');
-		console.log('readDoc2: ', readDoc2);
+		// const updateDoc = await cloudant.updateDoc('test', {
+		// 	_id: 'badId',
+		// 	fact3: 'I never understood a single word he said', 
+		// });
+		// console.log('updateDoc: ', updateDoc);
 
-		// const deleteDoc = await cloudant.deleteDoc('test', createDoc.id, createDoc.rev);
-		// console.log('deleteDoc: ', deleteDoc);
+		// const readDoc2 = await cloudant.readDoc('test', updateDoc.id);
+		// console.log('readDoc2.doc: ', readDoc2);
+
+		const deleteDoc = await cloudant.deleteDoc('test', createDoc.id, createDoc.rev);
+		console.log('deleteDoc: ', deleteDoc);
+
+		const deleteDoc2 = await cloudant.deleteDoc('test', createDoc.id, createDoc.rev);
+		console.log('deleteDoc2: ', deleteDoc2);
 
 		const deleteDb = await cloudant.deleteDb('test');
 		console.log('deleteDb: ', deleteDb);
 
-		// const deleteDb2 = await cloudant.deleteDb('test');
-		// console.log('deleteDb2: ', deleteDb2);
+		const deleteDb2 = await cloudant.deleteDb('test');
+		console.log('deleteDb2: ', deleteDb2);
 
 	} catch(err) {
 		console.log(err);

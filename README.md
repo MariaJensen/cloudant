@@ -96,8 +96,6 @@ If doc has no \_id property, a random id will be generated for the document.
 ### readDoc(dbName, docId [, queryParameters]) 
 Retrieves the content of the document with id docId in the database with name dbName, provided that such a database and document exist. 
 
-Note: 
-
 ###### **Parameters:**
 * **dbName string**
 * **docId string**
@@ -111,20 +109,59 @@ Note:
     * id: `<string>`
     * rev: `<string>`
     * doc: `<object>`
+  
   * else the returned object will have the properties 
     * error: `<string>`
     * reason: `<string>`
     * status: `<number>`
 
+### updateDoc(dbName, doc) 
+Overwrites the document with id doc._id and revision doc._rev in database dbName with doc. Provided that all these exist. 
 
-### updateDoc(dbName, doc) <!-- -------------------------------------- -->
+Note: If 
+	{ error: 'conflict',
+	  reason: 'Document update conflict.'
+	  status: 409 }
+is returned, it means that either
+* A document with id \_id exists in the database dbName, but the provided \_rev is not the lates revision of it
 
-* **Parameters:**
+OR that
+* No document with id \_id exists in the database dbName.  
 
-* **Returns**
+###### **Parameters:**
+* **dbName string**
+* **doc object** Must have properties _id and _rev
 
-### deleteDoc(dbName, docId, docRev) <!-- ------------------------------------ -->
+###### **Returns**
+* **object**
+  * if the document is successfully updated, the returned object will have the properties
+    * ok: true
+    * status: 201
+    * id: ´<string>´
+    * rev: ´<string>´
+  
+  * elsethe returned object will have properties
+    * error: ´<string>´
+    * reason: ´<string>´
+    * status: ´<number>´   
 
-* **Parameters:**
+### deleteDoc(dbName, docId, docRev) 
+Deletes the document with id docId and latest revision docRev from the database dbName, provided that such exist. 
 
-* **Returns**
+###### **Parameters:**
+* **dbName string**
+* **docId string**
+* **docRev string**
+
+###### **Returns**
+* **object**
+  * If the document is successfully deleted, the returned object will have the properties
+    * ok: true
+    * status: 200
+    * id: ´<string>´
+    * rev: ´<string>´
+  
+  * else the returned object will have the properties
+    * error: ´<string>´
+    * reason: ´<string>´
+    * status: ´<number>´
