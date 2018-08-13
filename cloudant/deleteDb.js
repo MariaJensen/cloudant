@@ -4,14 +4,14 @@ const request = require('./request/request.js');
 
 module.exports = async (dbHostname, adminUsername, adminPassword, dbName) => {
 
-	if (!dbName || typeof dbName !== 'string') {
-		throw new Error('dbName must be a non-empty string');
-	}
-
 	const dbNameRule = /^[a-z](([a-z]|[0-9]|[_$()+-/])*)$/;
 		
-	if (!dbNameRule.test(dbName)) {
-		throw new Error('dbName is not valid');
+	if (!dbName || typeof dbName !== 'string' || !dbNameRule.test(dbName)) {
+		return {
+			error: 'request_not_send',
+			reason: 'Illegal database name.',
+			status: 0,
+		};
 	}
 
 	const options = {

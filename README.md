@@ -137,8 +137,8 @@ OR that
   * if the document is successfully updated, the returned object will have the properties
     * ok: true
     * status: 201
-    * id: ´<string>´
-    * rev: ´<string>´
+    * id: `<string>`
+    * rev: `<string>`
   
   * elsethe returned object will have properties
     * error: `<string>`

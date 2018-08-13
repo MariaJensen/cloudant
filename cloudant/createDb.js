@@ -7,7 +7,11 @@ module.exports = async (dbHostname, adminUsername, adminPassword, dbName) => {
 	const dbNameRule = /^[a-z](([a-z]|[0-9]|[_$()+-/])*)$/;
 
 	if (!dbName || typeof dbName !== 'string' || !dbNameRule.test(dbName)) {
-		throw new Error('bad dbName');
+		return {
+			error: 'request_not_send',
+			reason: 'Illegal database name.',
+			status: 0,
+		};
 	}
 
 	const options = {
