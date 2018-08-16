@@ -118,16 +118,6 @@ Retrieves the content of the document with id docId in the database with name db
 ### updateDoc(dbName, doc) 
 Overwrites the document with id doc._id and revision doc._rev in database dbName with doc. Provided that all these exist. 
 
-Note: If 
-	{ error: 'conflict',
-	  reason: 'Document update conflict.'
-	  status: 409 }
-is returned, it means that either
-* A document with id \_id exists in the database dbName, but the provided \_rev is not the lates revision of it
-
-OR that
-* No document with id \_id exists in the database dbName.  
-
 ###### **Parameters:**
 * **dbName string**
 * **doc object** Must have properties _id and _rev

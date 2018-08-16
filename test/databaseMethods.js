@@ -47,7 +47,7 @@ describe('DATABASE METHODS', function() {
 		  reason: 'The database could not be created, the file already exists.',
 		  status: 412 \}
 	if db already exists`, async function() {
-		  	const createDb = await cloudant.createDb('test-db');
+		  	await cloudant.createDb('test-db');
 		  	const createDb2 = await cloudant.createDb('test-db');
 		  	assert.equal(typeof createDb2, 'object'),
 		  	assert.equal(createDb2.error, 'file_exists');
@@ -117,7 +117,7 @@ describe('DATABASE METHODS', function() {
 		it(`returns 
 		\{ ok: true, 
 		  status: 200 \}	
-	      if db is deleted successfully`, async function() {
+	if db is deleted successfully`, async function() {
 			const createDb = await cloudant.createDb('test-db'); 
 			const deleteDb = await cloudant.deleteDb('test-db');
 			assert.equal(typeof deleteDb, 'object');
