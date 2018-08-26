@@ -1,42 +1,37 @@
 'use strict';
 
-const createDb = require('./createDb.js');
-const deleteDb = require('./deleteDb.js');
-const createDoc = require('./createDoc.js');
-const readDoc = require('./readDoc.js');
-const updateDoc = require('./updateDoc.js');
-const deleteDoc = require('./deleteDoc.js');
+const head = require('./request/head.js');
+const get = require('./request/get.js');
+const post = require('./request/post.js');
+const put = require('./request/put.js');
+const del = require('./request/delete.js');
 
 module.exports = class Cloudant {
 
 	constructor(dbHostname, adminUsername, adminPassword) {
-		this.dbHostname = dbHostname;
-		this.adminUsername = adminUsername;
-		this.adminPassword = adminPassword;
+		this.hostname = dbHostname;
+		this.username = adminUsername;
+		this.password = adminPassword;
 	}
 
-	createDb(dbName) {
-		return createDb(this.dbHostname, this.adminUsername, this.adminPassword, dbName); 
+	head(path, parameters) {
+		return head(this.hostname, this.username, this.password, path, parameters);
 	}
 
-	deleteDb(dbName) {
-		return deleteDb(this.dbHostname, this.adminUsername, this.adminPassword, dbName);
+	get(path, parameters) {
+		return get(this.hostname, this.username, this.password, path, parameters);
 	}
 
-	createDoc(dbName, doc) {
-		return createDoc(this.dbHostname, this.adminUsername, this.adminPassword, dbName, doc);
+	post(path, body, parameters) {
+		return post(this.hostname, this.username, this.password, path, body, parameters);
 	}
 
-	readDoc(dbName, docId, queryParameters) {
-		return readDoc(this.dbHostname, this.adminUsername, this.adminPassword, dbName, docId, queryParameters);
+	put(path, body, parameters) {
+		return put(this.hostname, this.username, this.password, path, body, parameters);
 	}
 
-	updateDoc(dbName, doc) {
-		return updateDoc(this.dbHostname, this.adminUsername, this.adminPassword, dbName, doc);
+	delete(path, body, parameters) {
+		return del(this.hostname, this.username, this.password, path, body, parameters);
 	}
 
-	deleteDoc(dbName, id, rev) {
-		return deleteDoc(this.dbHostname, this.adminUsername, this.adminPassword, dbName, id, rev);
-	}
-	
 }
